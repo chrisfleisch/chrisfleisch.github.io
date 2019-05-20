@@ -18,7 +18,9 @@ permalink: /data-science/
 
 [Whiskey Business](https://github.com/chrisfleisch/whiskey-business): A comparison of whiskey prices and reviews from a liquor controlled state and free market states to find the best deals outside the state controlled prices. Whiskey prices and reviews were taken from multiple web sources, cleaned the data with python, stored it in HDFS, combined the data into one table, exported it to Google sheets and connected it to Data Studio for interactive visualizations.
 
-[Predicting Tree Coverage](https://github.com/chrisfleisch/predicting-tree-coverage): Based on a Kaggle competition we used Sklearn to predict the type of tree coverage from forest service data and Random Forest models.</p><p><b>Machine Learning at Scale</b>: Implementing embarrassingly parallel algorithms such as Naive Bayes with MapReduce, KMeans with MapReduce and Spark, Cosine similarity with MRJob, Linear Regression using gradient descent with MRJob, Single Source Shortest Path with MRJob, PageRank with MRJob and Spark, Logistic Regression using gradient descent with Spark, pairwise data mining in MapReduce.
+[Predicting Tree Coverage](https://github.com/chrisfleisch/predicting-tree-coverage): Based on a Kaggle competition we used Sklearn to predict the type of tree coverage from forest service data and Random Forest models.
+
+Machine Learning at Scale: Implementing embarrassingly parallel algorithms such as Naive Bayes with MapReduce, KMeans with MapReduce and Spark, Cosine similarity with MRJob, Linear Regression using gradient descent with MRJob, Single Source Shortest Path with MRJob, PageRank with MRJob and Spark, Logistic Regression using gradient descent with Spark, pairwise data mining in MapReduce.
 
 [Disaster Perplexity](https://github.com/chrisfleisch/disaster-perplexity): Detected perplexity and topic changes on social media when natural and man-made disasters happened in local communities.
 
