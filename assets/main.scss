@@ -5,13 +5,29 @@
 @import "minima";
 
 /* my styles */
+
+@font-face {
+    font-family: 'MuseoSlab500';
+    src: url('/my_site_assets/fonts/Museo_Slab_500-webfont.eot');
+    src: url('/my_site_assets/fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/my_site_assets/fonts/Museo_Slab_500-webfont.woff') format('woff'),
+         url('/my_site_assets/fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
+        url('/my_site_assets/fonts/Museo_Slab_500-webfont.svg#MuseoSlab500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+ }
+
+ h1, h2, h3, h4, h5, h6, .btn {
+    font-family: 'MuseoSlab500';
+}
+
 a.site-title {
-  width: 282px;
+  background: url("/my_site_assets/chris_fleisch.png") no-repeat scroll left top;
+  background-size: contain;
   height: 50px;
-  background: url("/my_site_assets/chris_fleisch.png") no-repeat left top;
-  background-size: 282px 50px;
-  top: 10px;
+  width: 282px;
   position: relative;
+  top: 10px;
   color: transparent;
 }
 

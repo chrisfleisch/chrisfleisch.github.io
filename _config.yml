@@ -23,6 +23,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username:  chrisfleisch
 linkedin_username: chris-fleisch
+flickr_username: chrisfleisch
 
 header_pages:
   - data-science.md
