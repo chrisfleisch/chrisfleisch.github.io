@@ -28,6 +28,6 @@ for your iPad and in print from
 
 ![The Space Elevator page from book 1](/my_site_assets/the_space_elevator-03-c-itunes.jpg)
 
-![The Space Elevator page from book 2](/my_site_assets/the_space_elevator-04-c-tunes.jpg)
+![The Space Elevator page from book 2](/my_site_assets/the_space_elevator-04-c-itunes.jpg)
 
 [Buy The Space Elevator](http://www.lulu.com/shop/chris-fleisch/the-space-elevator/paperback/product-20222302.html)
