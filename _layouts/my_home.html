@@ -10,8 +10,9 @@ layout: default
   {{ content }}
 
   <div class="imageGallery1">
-    <a href="/my_site_assets/the_space_elevator-03-c-itunes.jpg" title="Caption for gallery item 1"><img src="/my_site_assets/the_space_elevator-03-c-itunes.jpg" alt="Gallery image 1" /></a>
-    <a href="/my_site_assets/the_space_elevator-04-c-itunes.jpg" title="Caption for gallery item 2"><img src="/my_site_assets/the_space_elevator-04-c-itunes.jpg" alt="Gallery image 2" /></a>
+  {% for row in site.data.photos %}
+    <a href="{{ row.full_img }}" title="{{ row.title }}"><img src="{{ row.thumbnail }}" alt="Gallery image 1" /></a>
+  {% endfor %}
   </div>
 
   <script src="/my_site_assets/simpleLightbox/simpleLightbox.min.js"></script>
