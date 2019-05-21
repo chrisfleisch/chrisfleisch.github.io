@@ -1,0 +1,16 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima";
+
+/* my styles */
+a.site-title {
+  width: 282px;
+  height: 50px;
+  background: url("/my_site_assets/chris_fleisch.png") no-repeat left top;
+  background-size: 282px 50px;
+  top: 10px;
+  position: relative;
+  color: transparent;
+}
