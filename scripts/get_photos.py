@@ -18,8 +18,12 @@ def get_secret(setting, secrets=secrets):
 FLICKR_KEY = get_secret('FLICKR_KEY')
 FLICKR_SECRET = get_secret('FLICKR_SECRET')
 FLICKR_ID = get_secret('FLICKR_ID')
+FLICKR_TAG = 'favorite' # or collection or album?
+
 
 def main():
+
+    print(f'Fetching photos from Flickr with tag: {FLICKR_TAG}')
     pass
 
 
