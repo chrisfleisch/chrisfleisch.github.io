@@ -18,7 +18,7 @@ def get_secret(setting, secrets=secrets):
 FLICKR_KEY = get_secret('FLICKR_KEY')
 FLICKR_SECRET = get_secret('FLICKR_SECRET')
 FLICKR_ID = get_secret('FLICKR_ID')
-FLICKR_TAG = 'favorite' # or collection or album?
+FLICKR_TAG = 'starred' # or collection or album?
 
 
 def main():
