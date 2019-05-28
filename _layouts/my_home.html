@@ -9,15 +9,15 @@ layout: default
 
   {{ content }}
 
-  <div class="imageGallery1">
+  <div class="image_gallery">
   {% for row in site.data.photos %}
-    <a href="{{ row.full_img }}" title="{{ row.title }}"><img src="{{ row.thumbnail }}" alt="Gallery image 1" /></a>
+    <a href="{{ row.url_k }}" title="{{ row.title }}<br>{{ row.datetaken }}"><img src="{{ row.url_n }}" alt="{{ row.title }}"></a>
   {% endfor %}
   </div>
 
   <script src="/my_site_assets/simpleLightbox/simpleLightbox.min.js"></script>
   <script>
-    new SimpleLightbox({elements: '.imageGallery1 a'});
+    new SimpleLightbox({elements: '.image_gallery a'});
   </script>
 
 </div>

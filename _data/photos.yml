@@ -1,7 +1,12 @@
-- thumbnail: /my_site_assets/the_space_elevator-03-c-itunes.jpg
-  full_img: /my_site_assets/the_space_elevator-03-c-itunes.jpg
-  title: Title of img 1
-
-- thumbnail: /my_site_assets/the_space_elevator-04-c-itunes.jpg
-  full_img: /my_site_assets/the_space_elevator-04-c-itunes.jpg
-  title: Title of img 2
+- datetaken: '2019-05-19 13:58:30'
+  title: Cedar waxwing, The Ramble, Central Park
+  url_k: https://live.staticflickr.com/65535/46979312065_807159d8d6_k.jpg
+  url_n: https://live.staticflickr.com/65535/46979312065_e08b9a5773_n.jpg
+  url_o: https://live.staticflickr.com/65535/46979312065_80853b37c6_o.jpg
+  url_q: https://live.staticflickr.com/65535/46979312065_e08b9a5773_q.jpg
+- datetaken: '2017-04-30 16:13:23'
+  title: Pantheon Line
+  url_k: https://live.staticflickr.com/4204/35214839545_4da2308731_k.jpg
+  url_n: https://live.staticflickr.com/4204/35214839545_8a0caf7d9e_n.jpg
+  url_o: https://live.staticflickr.com/4204/35214839545_41defb0d5f_o.jpg
+  url_q: https://live.staticflickr.com/4204/35214839545_8a0caf7d9e_q.jpg
