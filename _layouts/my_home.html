@@ -10,9 +10,7 @@ layout: default
   {{ content }}
 
   <div class="image_gallery">
-  {% for row in site.data.photos %}
-    <a href="{{ row.url_k }}" title="{{ row.title }}<br>{{ row.datetaken }}"><img src="{{ row.url_n }}" alt="{{ row.title }}"></a>
-  {% endfor %}
+  {% for row in site.data.photos %}<a href="{{ row.url_k }}" title="{{ row.title }}<br><span>{{ row.datetaken }}</span>"><img src="{{ row.url_q }}" alt="{{ row.title }}"></a>{% endfor %}
   </div>
 
   <script src="/my_site_assets/simpleLightbox/simpleLightbox.min.js"></script>
