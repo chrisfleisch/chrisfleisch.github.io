@@ -2,6 +2,7 @@ from dateutil.parser import parse
 
 
 import flickrapi
+import html
 import json
 import os
 import yaml
@@ -59,7 +60,7 @@ def main():
             # print(photo['url_o']) # original
             # print('========')
             photo_data.append({
-                'title': photo['title'],
+                'title': html.escape(photo['title']),
                 'datetaken': parse(photo['datetaken']).strftime("%Y-%b-%d, %I:%M %p"),
                 'url_q': photo['url_q'], # thumbnail square 150
                 'url_n': photo['url_n'], # small 320
