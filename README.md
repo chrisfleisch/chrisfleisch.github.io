@@ -24,3 +24,8 @@ Run get photos
 ```
 python scripts/get_photos.py
 ```
+
+Update Jekyll
+```
+bundle update
+```
