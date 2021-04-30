@@ -52,7 +52,7 @@ def main():
             if 'url_k' not in photo:
                 photo['url_k'] = photo['url_o']
 
-            print(photo['title'])
+            print(photo['title'], photo['datetaken'])
             # print(photo['datetaken'])
             # print(photo['url_q']) # thumbnail square 150
             # print(photo['url_n']) # small 320
@@ -62,6 +62,7 @@ def main():
             photo_data.append({
                 'title': html.escape(photo['title']),
                 'datetaken': parse(photo['datetaken']).strftime("%Y-%b-%d, %I:%M %p"),
+                'orig_datetaken': photo['datetaken'],
                 'url_q': photo['url_q'], # thumbnail square 150
                 'url_n': photo['url_n'], # small 320
                 'url_k': photo['url_k'], # large size 2048
@@ -71,6 +72,8 @@ def main():
         page += 1
         photos = get_photos(flickr=flickr, page=page, per_page=per_page)
 
+    photo_data = sorted(photo_data,
+                        key=lambda x: x['orig_datetaken'], reverse=True)
     with open(os.path.join(BASE_DIR, '_data/photos.yml'), "w") as f:
         yaml.dump(photo_data, f)
 
