@@ -2,8 +2,8 @@
 
 ```
 brew install ruby
-echo 'export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/opt/ruby/bin:$PATH"' >> ~/.bash_profile
-source ~/.bash_profile
+echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
 gem install jekyll bundler
 bundle install  # may need to remove Gemfile.lock
 ```
@@ -15,7 +15,7 @@ bundle exec jekyll serve
 
 To get photos from flickr setup python env
 ```
-conda create -n chrisfleisch python=3.6 pip
+conda create -n chrisfleisch python=3.8 pip
 conda activate chrisfleisch
 pip install -r scripts/reqs.txt
 ```
