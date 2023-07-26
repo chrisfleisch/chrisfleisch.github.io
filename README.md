@@ -15,8 +15,8 @@ bundle exec jekyll serve
 
 To get photos from flickr setup python env
 ```
-conda create -n chrisfleisch python=3.8 pip
-conda activate chrisfleisch
+micromamba create -n chrisfleisch python=3.10
+micromamba activate chrisfleisch
 pip install -r scripts/reqs.txt
 ```
 
