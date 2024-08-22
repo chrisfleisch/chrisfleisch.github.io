@@ -1,0 +1,13 @@
+services:
+  fe:
+    platform: linux/amd64
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: fe
+    volumes:
+      - ./fe:/opt/app
+    ports:
+      - 3000:3000

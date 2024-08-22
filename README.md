@@ -1,17 +1,18 @@
 # chrisfleisch.github.io
 
-```
-brew install ruby
-echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-gem install jekyll bundler
-bundle install  # may need to remove Gemfile.lock
+## Development
+
+Running react in docker
+
+```bash
+docker compose build
+docker compose up -d
+docker compose exec fe bash
+# inside container
+npm install
+npm start
 ```
 
-Start up server in code directory (pwd cannot have spaces or special characters in it)
-```
-bundle exec jekyll serve
-```
 
 To get photos from flickr setup python env
 ```
@@ -23,9 +24,4 @@ pip install -r scripts/reqs.txt
 Run get photos
 ```
 python scripts/get_photos.py
-```
-
-Update Jekyll
-```
-bundle update
 ```
