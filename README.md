@@ -34,3 +34,10 @@ Run get photos
 ```bash
 python scripts/get_photos.py
 ```
+
+JS Code formatter
+
+```bash
+docker compose exec fe npx prettier . --check
+docker compose exec fe npx prettier . --write
+```
