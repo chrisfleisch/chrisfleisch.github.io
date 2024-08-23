@@ -1,28 +1,18 @@
-from dateutil.parser import parse
-
-
 import flickrapi
 import html
 import json
-import os
-import yaml
+import json
+
+from dateutil.parser import parse
+from decouple import config
+from pathlib import Path
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).parent.parent
 
-# JSON-based secrets module
-with open(os.path.join(BASE_DIR, 'settings.json')) as f:
-    secrets = json.loads(f.read())
-
-
-def get_secret(setting, secrets=secrets):
-    """Get the secret variable or return exception."""
-    return secrets[setting]
-
-
-FLICKR_KEY = get_secret('FLICKR_KEY')
-FLICKR_SECRET = get_secret('FLICKR_SECRET')
-FLICKR_ID = get_secret('FLICKR_ID')
+FLICKR_KEY = config('FLICKR_KEY')
+FLICKR_SECRET = config('FLICKR_SECRET')
+FLICKR_ID = config('FLICKR_ID')
 FLICKR_TAG = 'favorite'  # grab photos with this tag
 
 
@@ -39,47 +29,48 @@ def main():
     flickr.authenticate_via_browser(perms='read')  # o-auth token saved to ~/.flickr/
 
     page = 1
-    per_page = 5
+    per_page = 10
 
     photos = get_photos(flickr=flickr, page=page, per_page=per_page)
-    # print(photos)
     total_pages = photos['photos']['pages']
 
     photo_data = [] # hold photo data
 
     while page <= total_pages:
         for photo in photos['photos']['photo']:
-            if 'url_k' not in photo:
-                photo['url_k'] = photo['url_o']
-
-            print(photo['title'], photo['datetaken'])
-            # print(photo['datetaken'])
-            # print(photo['url_q']) # thumbnail square 150
-            # print(photo['url_n']) # small 320
-            # print(photo['url_k']) # large size 2048
-            # print(photo['url_o']) # original
-            # print('========')
-            photo_data.append({
-                'title': html.escape(photo['title']),
-                'datetaken': parse(photo['datetaken']).strftime("%Y-%b-%d, %I:%M %p"),
-                'orig_datetaken': photo['datetaken'],
-                'url_q': photo['url_q'], # thumbnail square 150
-                'url_n': photo['url_n'], # small 320
-                'url_k': photo['url_k'], # large size 2048
-                'url_o': photo['url_o'] # original
-            })
+            if photo['ispublic'] == 1:
+                if 'url_k' not in photo:
+                    photo['url_k'] = photo['url_o']
+                print(photo['title'], photo['datetaken'])
+                photo_data.append({
+                    'title': html.escape(photo['title']),
+                    'datetaken': parse(photo['datetaken']).strftime("%Y-%b-%d, %I:%M %p"),
+                    'orig_datetaken': photo['datetaken'],
+                    'url_q': photo['url_q'], # thumbnail square 150
+                    'height_q': photo['height_q'],
+                    'width_q': photo['width_q'],
+                    'url_n': photo['url_n'], # small 320
+                    'height_n': photo['height_n'],
+                    'width_n': photo['width_n'],
+                    'url_k': photo['url_k'], # large size 2048
+                    'height_k': photo['height_k'],
+                    'width_k': photo['width_k'],
+                    'url_o': photo['url_o'], # original
+                    'height_o': photo['height_o'],
+                    'width_o': photo['width_o'],
+                })
+            else:
+                print(f"{photo['title']} is not public")
 
         page += 1
         photos = get_photos(flickr=flickr, page=page, per_page=per_page)
 
     photo_data = sorted(photo_data,
                         key=lambda x: x['orig_datetaken'], reverse=True)
-    with open(os.path.join(BASE_DIR, '_data/photos.yml'), "w") as f:
-        yaml.dump(photo_data, f)
+    with Path(BASE_DIR / 'fe/src/data/photos.json').open("w") as f:
+        json.dump(photo_data, f, ensure_ascii=False, indent=2)
 
     print('Found', len(photo_data), 'photos.')
-
-    # print(photos)
 
 
 if __name__ == "__main__":
