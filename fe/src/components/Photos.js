@@ -7,8 +7,8 @@ function Photo({
     title, datetaken, url_k, url_q, height_k, width_k
 }) {
     return (
-        <Item 
-            original={url_k} thumbnail={url_q} 
+        <Item
+            original={url_k} thumbnail={url_q}
             height={height_k} width={width_k}
             caption={title + "<br><span>" + datetaken + "</span>"}
         >
