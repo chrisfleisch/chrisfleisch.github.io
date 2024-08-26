@@ -11,7 +11,7 @@ function App() {
       <header className="site-header">
         <div className="container">
           <a className="site-title" href="/">
-              Chris Fleisch
+            Chris Fleisch
           </a>
         </div>
       </header>
