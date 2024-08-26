@@ -1,6 +1,23 @@
 name: publish
 
 on:
+  inputs:
+    name:
+      description: 'Artifact name'
+      required: false
+      default: 'github-pages'
+    path:
+      description: "Path of the directory containing the static assets."
+      required: true
+      default: "fe/build/"
+    retention-days:
+      description: "Duration after which artifact will expire in days."
+      required: false
+      default: "1"
+  outputs:
+    artifact_id:
+      description: "The ID of the artifact that was uploaded."
+      value: ${{ steps.upload-artifact.outputs.artifact-id }}
   push:
     branches:
       - master
@@ -11,24 +28,6 @@ on:
 
 jobs:
   pub:
-    inputs:
-      name:
-        description: 'Artifact name'
-        required: false
-        default: 'github-pages'
-      path:
-        description: "Path of the directory containing the static assets."
-        required: true
-        default: "fe/build/"
-      retention-days:
-        description: "Duration after which artifact will expire in days."
-        required: false
-        default: "1"
-    outputs:
-      artifact_id:
-        description: "The ID of the artifact that was uploaded."
-        value: ${{ steps.upload-artifact.outputs.artifact-id }}
-
     # Set up operating system
     runs-on: ubuntu-latest
 
