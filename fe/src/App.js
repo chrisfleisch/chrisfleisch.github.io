@@ -1,5 +1,5 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.css"; /* this breaks npm run build */
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import MyGallery from "./components/Photos";
 import SiteFooter from "./components/Footer";

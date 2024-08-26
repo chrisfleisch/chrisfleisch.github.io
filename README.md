@@ -38,6 +38,13 @@ python scripts/get_photos.py
 JS Code formatter
 
 ```bash
-docker compose exec fe npx prettier . --check
-docker compose exec fe npx prettier . --write
+docker compose run --rm fe npx prettier . --check
+docker compose run --rm fe npx prettier . --write
+```
+
+Build and test static
+
+```bash
+docker compose run --rm fe npm run build
+python -m http.server -d fe/build
 ```
