@@ -1,31 +1,50 @@
 # chrisfleisch.github.io
 
-```
-brew install ruby
-echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-gem install jekyll bundler
-bundle install  # may need to remove Gemfile.lock
-```
+## Development
 
-Start up server in code directory (pwd cannot have spaces or special characters in it)
-```
-bundle exec jekyll serve
+Running react in docker
+
+```bash
+docker compose build
+docker compose up -d
+docker compose exec fe bash
+# inside container
+npm install
+npm start  # Browse to http://localhost:3000
 ```
 
 To get photos from flickr setup python env
-```
-micromamba create -n chrisfleisch python=3.10
+
+```bash
+micromamba create -n chrisfleisch python=3.12
 micromamba activate chrisfleisch
-pip install -r scripts/reqs.txt
+pip install -r scripts/requirements.txt
+```
+
+Create `.env` and fill in values
+
+```bash
+FLICKR_KEY=""
+FLICKR_SECRET=""
+FLICKR_ID=""
 ```
 
 Run get photos
-```
+
+```bash
 python scripts/get_photos.py
 ```
 
-Update Jekyll
+JS Code formatter
+
+```bash
+docker compose run --rm fe npx prettier . --check
+docker compose run --rm fe npx prettier . --write
 ```
-bundle update
+
+Build and test static
+
+```bash
+docker compose run --rm fe npm run build
+python -m http.server -d fe/build
 ```

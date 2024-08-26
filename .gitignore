@@ -4,3 +4,5 @@ _site
 .jekyll-cache
 .DS_Store
 settings.json
+.env
+__pycache__
