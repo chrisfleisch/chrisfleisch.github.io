@@ -1,23 +1,6 @@
 name: publish
 
 on:
-  inputs:
-    name:
-      description: 'Artifact name'
-      required: false
-      default: 'github-pages'
-    path:
-      description: "Path of the directory containing the static assets."
-      required: true
-      default: "fe/build/"
-    retention-days:
-      description: "Duration after which artifact will expire in days."
-      required: false
-      default: "1"
-  outputs:
-    artifact_id:
-      description: "The ID of the artifact that was uploaded."
-      value: ${{ steps.upload-artifact.outputs.artifact-id }}
   push:
     branches:
       - master
@@ -58,13 +41,13 @@ jobs:
           .
         echo ::endgroup::
       env:
-        INPUT_PATH: ${{ inputs.path }}
+        INPUT_PATH: fe/build/
 
     - name: Upload artifact
       id: upload-artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ inputs.name }}
+        name: github-pages
         path: ${{ runner.temp }}/artifact.tar
-        retention-days: ${{ inputs.retention-days }}
+        retention-days: 1
         if-no-files-found: error
