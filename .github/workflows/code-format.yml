@@ -1,9 +1,6 @@
 name: code_format
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
