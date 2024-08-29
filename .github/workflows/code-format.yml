@@ -41,7 +41,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "Code changes!"
-        gh pr create --title "Code formatting" --body "Changes from code formatting" --base main --head code-formatting
+        gh pr create --title "Code formatting" --body "Changes from code formatting" --base master --head code-formatting
 
     - name: Merge PR
       if: steps.auto-commit-action.outputs.changes_detected == 'true'
