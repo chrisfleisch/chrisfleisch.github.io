@@ -48,3 +48,5 @@ Build and test static
 docker compose run --rm fe npm run build
 python -m http.server -d fe/build
 ```
+
+blah
