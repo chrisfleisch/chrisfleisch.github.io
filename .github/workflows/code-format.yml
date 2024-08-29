@@ -21,16 +21,19 @@ jobs:
 
     - name: Format with prettier
       run: docker compose run --rm fe npx prettier . --write
-
-    - name: Format with pre-commit
-      uses: pre-commit/action@v3.0.1
+    
+    - name: Install and run pre-commit
+      uses: actions/setup-python@v5
       with:
-        extra_args: --all-files
+        python-version: '3.12'
+      run: |
+          pip install pre-commit
+          pre-commit install
+          pre-commit run --all-files || pre-commit run --all-files
 
     - name: Commit any changes
       uses: stefanzweifel/git-auto-commit-action@v5
       id: auto-commit-action
-      if: ${{ !cancelled() }}
       with:
         commit_message: Apply prettier/pre-commit changes
         branch: code-formatting
