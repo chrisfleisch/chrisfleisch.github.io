@@ -1,9 +1,6 @@
 name: code_format
 
 on:
-  pull_request:
-    branches:
-      - master
   workflow_call:
 
 jobs:
@@ -35,10 +32,24 @@ jobs:
       id: auto-commit-action
       with:
         commit_message: Apply prettier/pre-commit changes
+        branch: code-formatting
+        create_branch: true
 
-    - name: "Run if changes have been detected"
+    - name: "Create PR if changes have been detected"
       if: steps.auto-commit-action.outputs.changes_detected == 'true'
-      run: echo "Code changes!"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "Code changes!"
+        gh pr create --title "Code formatting" --body "Changes from code formatting" --base main --head code-formatting
+
+    - name: Merge PR
+      if: steps.auto-commit-action.outputs.changes_detected == 'true'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        pr_number=$(gh pr list --state open --limit 1 --json number --jq '.[0].number')
+        gh pr merge $pr_number --merge
 
     - name: "Run if no changes have been detected"
       if: steps.auto-commit-action.outputs.changes_detected == 'false'
