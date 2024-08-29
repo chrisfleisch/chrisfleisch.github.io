@@ -24,6 +24,7 @@ jobs:
 
     - name: Format with pre-commit
       uses: pre-commit/action@v3.0.1
+      if: ${{ !cancelled() }}
       with:
         extra_args: --all-files
 
