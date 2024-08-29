@@ -29,7 +29,7 @@ FLICKR_SECRET=""
 FLICKR_ID=""
 ```
 
-Run get photos
+Tag new photos on flickr with `favorite`. Then run get photos
 
 ```bash
 python scripts/get_photos.py
@@ -48,5 +48,3 @@ Build and test static
 docker compose run --rm fe npm run build
 python -m http.server -d fe/build
 ```
-
-blah
