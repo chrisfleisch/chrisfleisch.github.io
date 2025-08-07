@@ -6,3 +6,4 @@ _site
 settings.json
 .env
 __pycache__
+flickr_token.json
