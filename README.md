@@ -13,12 +13,11 @@ npm install
 npm start  # Browse to http://localhost:3000
 ```
 
-To get photos from flickr setup python env
+To get photos from flickr setup python env with [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 ```bash
-micromamba create -n chrisfleisch python=3.12
-micromamba activate chrisfleisch
-pip install -r scripts/requirements.txt
+uv venv --python 3.13
+uv pip install -r scripts/requirements.txt
 ```
 
 Create `.env` and fill in values
@@ -32,7 +31,7 @@ FLICKR_ID=""
 Tag new photos on flickr with `favorite`. Then run get photos
 
 ```bash
-python scripts/get_photos.py
+uv run python scripts/get_photos.py
 ```
 
 JS Code formatter
