@@ -47,3 +47,7 @@ Build and test static
 docker compose run --rm fe npm run build
 python -m http.server -d fe/build
 ```
+
+## Deployment
+
+Create a PR and merge to main to initiate deployment to github pages.
