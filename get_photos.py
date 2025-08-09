@@ -8,7 +8,6 @@
 # ]
 # ///
 import html
-import os
 import json
 import requests
 import webbrowser
@@ -33,19 +32,22 @@ ACCESS_TOKEN_URL = "https://www.flickr.com/services/oauth/access_token"
 # ---------------- Token Handling ---------------- #
 
 
-def load_access_token():
-    if os.path.exists(TOKEN_FILE):
-        with open(TOKEN_FILE, "r") as f:
+def load_access_token() -> dict | None:
+    """Load the access token from a file if it exists."""
+    if Path(TOKEN_FILE).exists():
+        with Path(TOKEN_FILE).open("r") as f:
             return json.load(f)
     return None
 
 
-def save_access_token(token_data):
-    with open(TOKEN_FILE, "w") as f:
+def save_access_token(token_data: dict) -> None:
+    """Save the access token to a file."""
+    with Path(TOKEN_FILE).open("w") as f:
         json.dump(token_data, f)
 
 
-def get_authenticated_session():
+def get_authenticated_session() -> OAuth1:
+    """Get an authenticated session using OAuth1."""
     token_data = load_access_token()
     if token_data:
         print("✅ Loaded saved access token.")
@@ -97,7 +99,20 @@ def get_authenticated_session():
 # ---------------- Flickr Photo Search ---------------- #
 
 
-def search_photos(tag, per_page=50, max_pages=None):
+def search_photos(
+    tag: str, per_page: int = 50, max_pages: int | None = None
+) -> list[dict]:
+    """Search for photos on Flickr by tag.
+
+    Args:
+        tag (str): The tag to search for.
+        per_page (int): Number of photos per page (default is 50).
+        max_pages (int | None): Maximum number of pages to retrieve
+            (default is None, which means all pages).
+
+    Returns:
+        list[dict]: A list of photo metadata dictionaries.
+    """
     oauth = get_authenticated_session()
     base_url = "https://www.flickr.com/services/rest/"
     all_photos = []
