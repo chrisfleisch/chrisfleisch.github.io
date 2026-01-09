@@ -9,7 +9,7 @@ on:
 jobs:
   code_format:
     # Set up operating system
-    runs-on: ubuntu-latestd
+    runs-on: ubuntu-latest
 
     # Define job steps
     steps:
