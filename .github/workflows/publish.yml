@@ -17,41 +17,41 @@ jobs:
 
     # Define job steps
     steps:
-    - name: Check-out repository
-      uses: actions/checkout@v4
+      - name: Check-out repository
+        uses: actions/checkout@v4
 
-    - name: Build containers
-      run: docker compose build
+      - name: Build containers
+        run: docker compose build
 
-    - name: Install dependencies
-      run: docker compose run --rm fe npm install
+      - name: Install dependencies
+        run: docker compose run --rm fe npm install
 
-    - name: Run build
-      run: docker compose run --rm fe npm run build
+      - name: Run build
+        run: docker compose run --rm fe npm run build
 
-    - name: Archive artifact
-      shell: sh
-      run: |
-        echo ::group::Archive artifact
-        tar \
-          --dereference --hard-dereference \
-          --directory "$INPUT_PATH" \
-          -cvf "$RUNNER_TEMP/artifact.tar" \
-          --exclude=.git \
-          --exclude=.github \
-          .
-        echo ::endgroup::
-      env:
-        INPUT_PATH: fe/build/
+      - name: Archive artifact
+        shell: sh
+        run: |
+          echo ::group::Archive artifact
+          tar \
+            --dereference --hard-dereference \
+            --directory "$INPUT_PATH" \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=.git \
+            --exclude=.github \
+            .
+          echo ::endgroup::
+        env:
+          INPUT_PATH: fe/build/
 
-    - name: Upload artifact
-      id: upload-artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: github-pages
-        path: ${{ runner.temp }}/artifact.tar
-        retention-days: 1
-        if-no-files-found: error
+      - name: Upload artifact
+        id: upload-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
   deploy:
     # Add a dependency to the build job
@@ -59,8 +59,8 @@ jobs:
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
 
     # Deploy to the github-pages environment
     environment:

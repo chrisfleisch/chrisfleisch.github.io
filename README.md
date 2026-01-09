@@ -10,7 +10,7 @@ docker compose up -d
 docker compose exec fe bash
 # inside container
 npm install
-npm start  # Browse to http://localhost:3000
+npm run dev  # Browse to http://localhost:5173
 ```
 
 To get photos from flickr install [uv](https://docs.astral.sh/uv/getting-started/installation/).
