@@ -18,6 +18,8 @@ jobs:
 
       - name: Setup python
         uses: astral-sh/setup-uv@v7
+        with:
+          ignore-nothing-to-cache: 'true'
 
       - uses: actions/setup-node@v6
         with:
