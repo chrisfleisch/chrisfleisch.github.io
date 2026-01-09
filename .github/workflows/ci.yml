@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  workflow_call:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  code_format:
+    # Set up operating system
+    runs-on: ubuntu-latest
+
+    # Define job steps
+    steps:
+      - name: Check-out repository
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: astral-sh/setup-uv@v7
+        with:
+          ignore-nothing-to-cache: 'true'
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 25. # Same as in Dockerfile
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install pre-commit and run
+        run: uvx pre-commit run --all-files

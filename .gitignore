@@ -7,3 +7,4 @@ settings.json
 .env
 __pycache__
 flickr_token.json
+node_modules

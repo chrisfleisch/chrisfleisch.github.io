@@ -1,0 +1,76 @@
+/* @import 'tailwindcss'; */
+
+@theme {
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+} */
+
+@font-face {
+  font-family: 'MuseoSlab500';
+  src: url('./fonts/Museo_Slab_500-webfont.eot');
+  src:
+    url('./fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Museo_Slab_500-webfont.woff') format('woff'),
+    url('./fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
+    url('./fonts/Museo_Slab_500-webfont.svg#MuseoSlab500') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.btn {
+  font-family: 'MuseoSlab500';
+}
+
+a.site-title {
+  background: url('./img/chris_fleisch.png') no-repeat scroll left top;
+  background-size: contain;
+  height: 50px;
+  width: 282px;
+  position: relative;
+  top: 9px;
+  color: transparent;
+  display: inline-block;
+}
+
+article.image_gallery img {
+  margin: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.site-header {
+  border-top: 5px solid #424242;
+  border-bottom: 1px solid #e8e8e8;
+  height: 62px;
+  position: relative;
+}
+
+.page-content {
+  margin-top: 30px;
+}
+
+footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.social-icon {
+  margin: 0px 10px 0 10px;
+}

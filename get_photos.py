@@ -179,7 +179,7 @@ def search_photos(
             break
 
     all_photos = sorted(all_photos, key=lambda x: x["orig_datetaken"], reverse=True)
-    with Path(BASE_DIR / "fe/src/data/photos.json").open("w") as f:
+    with Path(BASE_DIR / "fe/app/home/data/photos.json").open("w") as f:
         json.dump(all_photos, f, ensure_ascii=False, indent=2)
     return all_photos
 
@@ -187,6 +187,6 @@ def search_photos(
 # ---------------- Main ---------------- #
 
 if __name__ == "__main__":
-    tag = input("🔍 Enter a tag to search for: ")
+    tag = input("🔍 Enter a tag to search for (ex. favorite): ")
     results = search_photos(tag)
     print(f"\n📸 Found {len(results)} photos.")

@@ -10,7 +10,7 @@ docker compose up -d
 docker compose exec fe bash
 # inside container
 npm install
-npm start  # Browse to http://localhost:3000
+npm run dev  # Browse to http://localhost:5173
 ```
 
 To get photos from flickr install [uv](https://docs.astral.sh/uv/getting-started/installation/).
@@ -34,18 +34,11 @@ Tag new photos on flickr with `favorite`. Then run get photos
 uv run get_photos.py
 ```
 
-JS Code formatter
-
-```bash
-docker compose run --rm fe npx prettier . --check
-docker compose run --rm fe npx prettier . --write
-```
-
 Build and test static
 
 ```bash
 docker compose run --rm fe npm run build
-python -m http.server -d fe/build
+uv run python -m http.server -d fe/build/client
 ```
 
 ## Deployment

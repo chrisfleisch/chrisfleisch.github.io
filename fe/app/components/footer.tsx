@@ -1,7 +1,6 @@
-import React from "react";
-import { SocialIcon } from "react-social-icons";
+import { SocialIcon } from 'react-social-icons'
 
-export default function SiteFooter() {
+export function SiteFooter() {
   return (
     <footer>
       <div className="container">
@@ -10,5 +9,5 @@ export default function SiteFooter() {
         <SocialIcon url="https://github.com/chrisfleisch" />
       </div>
     </footer>
-  );
+  )
 }
