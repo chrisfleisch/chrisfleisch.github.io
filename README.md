@@ -38,7 +38,7 @@ Build and test static
 
 ```bash
 docker compose run --rm fe npm run build
-uv run python -m http.server -d fe_rr/build/client
+uv run python -m http.server -d fe/build/client
 ```
 
 ## Deployment
