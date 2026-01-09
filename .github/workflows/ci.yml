@@ -19,9 +19,6 @@ jobs:
       - name: Setup python
         uses: astral-sh/setup-uv@v6
 
-      - name: Set up Python
-        run: uv python install
-
       - uses: actions/setup-node@v6
         with:
           node-version: 25. # Same as in Dockerfile
