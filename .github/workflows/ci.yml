@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  format:
+  code_format:
     # Set up operating system
     runs-on: ubuntu-latestd
 
