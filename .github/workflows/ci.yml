@@ -9,7 +9,7 @@ on:
 jobs:
   format:
     # Set up operating system
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latestd
 
     # Define job steps
     steps:
@@ -21,6 +21,13 @@ jobs:
 
       - name: Set up Python
         run: uv python install
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 25. # Same as in Dockerfile
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Install pre-commit and run
         run: uvx pre-commit run --all-files
