@@ -42,9 +42,6 @@ function Photo({
 export function PhotoGallery({ photos }: { photos: Photos }) {
   return (
     <article className="image_gallery">
-      <header>
-        <h1>Welcome</h1>
-      </header>
       <Gallery withCaption>
         {photos.map((props, i) => (
           <Photo key={i} {...props} />

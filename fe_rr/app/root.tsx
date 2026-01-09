@@ -9,6 +9,11 @@ import {
 import React from 'react'
 
 import type { Route } from './+types/root'
+
+import { Header } from '~/components/header'
+import { SiteFooter } from '~/components/footer'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './app.css'
 
 export const links: Route.LinksFunction = () => [
@@ -39,7 +44,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <Header />
+        <div className="container page-content">{children}</div>
+        <SiteFooter />
         <ScrollRestoration />
         <Scripts />
       </body>
