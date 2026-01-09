@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  workflow_call:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format:
+    # Set up operating system
+    runs-on: ubuntu-latest
+
+    # Define job steps
+    steps:
+      - name: Check-out repository
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install pre-commit and run
+        run: uvx pre-commit run --all-files
