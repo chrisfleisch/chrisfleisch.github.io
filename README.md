@@ -11,6 +11,10 @@ docker compose exec fe bash
 # inside container
 npm install
 npm run dev  # Browse to http://localhost:5173
+# upgrade packages.json
+npx npm-check-updates -u
+# install new packages after updates
+npm install --force
 ```
 
 To get photos from flickr install [uv](https://docs.astral.sh/uv/getting-started/installation/).
