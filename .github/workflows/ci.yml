@@ -16,7 +16,7 @@ jobs:
     # Define job steps
     steps:
       - name: Check-out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup python
         uses: astral-sh/setup-uv@v7
