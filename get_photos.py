@@ -7,7 +7,6 @@
 #     "python-dateutil",
 # ]
 # ///
-import html
 import json
 import requests
 import webbrowser
@@ -150,7 +149,7 @@ def search_photos(
                     ]  # Fallback to original if large size is not available
                 all_photos.append(
                     {
-                        "title": html.escape(photo["title"]),
+                        "title": photo["title"],
                         "datetaken": parse(photo["datetaken"]).strftime(
                             "%Y-%b-%d, %I:%M %p"
                         ),
