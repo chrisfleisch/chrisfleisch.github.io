@@ -6,25 +6,14 @@
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-/* html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-} */
-
 @font-face {
   font-family: 'MuseoSlab500';
-  src: url('./fonts/Museo_Slab_500-webfont.eot');
   src:
-    url('./fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/Museo_Slab_500-webfont.woff') format('woff'),
-    url('./fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
-    url('./fonts/Museo_Slab_500-webfont.svg#MuseoSlab500') format('svg');
+    url('./fonts/MuseoSlab500.woff2') format('woff2'),
+    url('./fonts/MuseoSlab500.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 h1,

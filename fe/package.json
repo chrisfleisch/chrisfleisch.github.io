@@ -9,27 +9,27 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@react-router/node": "7.13.1",
-    "@react-router/serve": "7.13.1",
+    "@react-router/node": "7.14.2",
+    "@react-router/serve": "7.14.2",
     "bootstrap": "^5.3.8",
-    "isbot": "^5.1.35",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
+    "isbot": "^5.1.39",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "react-photoswipe-gallery": "^4.0.0",
-    "react-router": "7.13.1",
-    "react-social-icons": "^6.25.0",
-    "zod": "^4.3.6"
+    "react-router": "7.14.2",
+    "react-social-icons": "^6.26.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@react-router/dev": "7.13.1",
-    "@tailwindcss/vite": "^4.2.1",
+    "@react-router/dev": "7.14.2",
+    "@tailwindcss/vite": "^4.2.4",
     "@types/node": "^25",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "prettier": "^3.8.1",
-    "tailwindcss": "^4.2.1",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1",
+    "prettier": "^3.8.3",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10",
     "vite-tsconfig-paths": "^6.1.1"
   }
 }
