@@ -11,7 +11,9 @@
     "prestart": "node ../scripts/require-docker.js",
     "start": "react-router-serve ./build/server/index.js",
     "pretypecheck": "node ../scripts/require-docker.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "pretest:e2e": "node ../scripts/require-docker.js",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@react-router/node": "8.1.0",
@@ -29,9 +31,11 @@
     "@react-router/dev": "8.1.0",
     "@tailwindcss/vite": "^4.3.2",
     "@types/node": "^26",
+    "@playwright/test": "^1.61.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "prettier": "^3.9.4",
+    "serve": "^14.2.6",
     "tailwindcss": "^4.3.2",
     "typescript": "^6.0.3",
     "vite": "^8.1.3",
