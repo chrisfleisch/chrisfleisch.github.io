@@ -59,6 +59,12 @@ Build and test static
 uv run python -m http.server -d fe/build/client
 ```
 
+Run the e2e test (builds, serves, and checks the page loads with no console/page errors or failed requests)
+
+```bash
+./scripts/docker-npm.sh fe run test:e2e
+```
+
 ## Deployment
 
 Create a PR and merge to main to initiate deployment to github pages.

@@ -28,3 +28,21 @@ jobs:
 
       - name: Install pre-commit and run
         run: uvx pre-commit run --all-files
+
+  e2e:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check-out repository
+        uses: actions/checkout@v7
+
+      - name: Install dependencies
+        run: docker compose run --rm fe npm install
+
+      - name: Build
+        run: docker compose run --rm fe npm run build
+
+      - name: Run e2e tests
+        run: docker compose run --rm fe npm run test:e2e
