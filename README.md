@@ -2,7 +2,7 @@
 
 ## Development
 
-Running react in docker
+Running react in docker. `npm` only works inside Docker — a `preinstall`/`pre<script>` guard blocks it on the host and tells you to use Docker instead.
 
 ```bash
 docker compose build
@@ -18,9 +18,22 @@ rm -r node_modules
 npm install
 ```
 
+Or, without an interactive shell, use the `docker-npm.sh` helper (`./scripts/docker-npm.sh <tools|fe> <npm-args...>`):
+
+```bash
+./scripts/docker-npm.sh fe install
+./scripts/docker-npm.sh fe run dev  # Browse to http://localhost:5173
+```
+
+Use the `tools` service for the root `package.json` (e.g. after pulling changes to it):
+
+```bash
+./scripts/docker-npm.sh tools install
+```
+
 To get photos from flickr install [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
-Setup pre-commit
+Setup pre-commit (Prettier/ESLint hooks run via the `tools` Docker service automatically)
 
 ```sh
 uvx pre-commit install
@@ -42,7 +55,7 @@ uv run get_photos.py
 Build and test static
 
 ```bash
-docker compose run --rm fe npm run build
+./scripts/docker-npm.sh fe run build
 uv run python -m http.server -d fe/build/client
 ```
 

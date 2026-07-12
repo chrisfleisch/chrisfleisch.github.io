@@ -3,9 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "react-router build",
+    "preinstall": "node ../scripts/require-docker.js",
+    "predev": "node ../scripts/require-docker.js",
     "dev": "react-router dev",
+    "prebuild": "node ../scripts/require-docker.js",
+    "build": "react-router build",
+    "prestart": "node ../scripts/require-docker.js",
     "start": "react-router-serve ./build/server/index.js",
+    "pretypecheck": "node ../scripts/require-docker.js",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {

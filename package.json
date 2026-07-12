@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "preinstall": "node scripts/require-docker.js"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@typescript-eslint/eslint-plugin": "^8.55.0",
@@ -7,7 +10,8 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1"
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "prettier": "^3.9.4"
   },
   "type": "module"
 }

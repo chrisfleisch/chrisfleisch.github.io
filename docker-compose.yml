@@ -8,5 +8,13 @@ services:
       target: fe
     volumes:
       - ./fe:/opt/app
+      - ./scripts:/opt/scripts:ro
     ports:
       - 5173:5173
+  tools:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: tools
+    volumes:
+      - .:/opt/app
