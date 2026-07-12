@@ -23,12 +23,8 @@ jobs:
         with:
           ignore-nothing-to-cache: 'true'
 
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 26 # Same as in Dockerfile
-
       - name: Install dependencies
-        run: npm install
+        run: docker compose run --rm tools npm install
 
       - name: Install pre-commit and run
         run: uvx pre-commit run --all-files

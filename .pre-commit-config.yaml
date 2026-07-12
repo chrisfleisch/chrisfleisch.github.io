@@ -22,13 +22,13 @@ repos:
     hooks:
       - id: prettier
         name: Prettier
-        entry: npx prettier --write
+        entry: docker compose run --rm -T tools npx prettier --write
         language: system
         files: \.(js|jsx|ts|tsx|json|css|scss|md|yml|yaml)$
   - repo: local
     hooks:
       - id: eslint
         name: ESLint
-        entry: npx eslint --fix
+        entry: docker compose run --rm -T tools npx eslint --fix
         language: system
         files: \.(js|jsx|ts|tsx)$
