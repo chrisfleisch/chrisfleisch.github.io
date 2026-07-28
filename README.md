@@ -31,6 +31,17 @@ Use the `tools` service for the root `package.json` (e.g. after pulling changes 
 ./scripts/docker-npm.sh tools install
 ```
 
+or to run tools container interactively:
+
+```bash
+docker compose run tools bash
+# instide container
+npx npm-check-updates -u
+rm package-lock.json
+rm -r node_modules
+npm install
+```
+
 To get photos from flickr install [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 Setup pre-commit (Prettier/ESLint hooks run via the `tools` Docker service automatically)
