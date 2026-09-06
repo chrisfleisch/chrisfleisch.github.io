@@ -8,12 +8,13 @@
 # ]
 # ///
 import json
-import requests
 import webbrowser
+from pathlib import Path
+
+import requests
+from dateutil.parser import parse
 from environs import env
 from requests_oauthlib import OAuth1
-from dateutil.parser import parse
-from pathlib import Path
 
 # ---------------- Configuration ---------------- #
 env.read_env()
