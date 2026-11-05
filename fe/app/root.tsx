@@ -45,7 +45,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Header />
-        <div className="container page-content">{children}</div>
+        <div className="container page-content">
+          <div className="content-column">{children}</div>
+        </div>
         <SiteFooter />
         <ScrollRestoration />
         <Scripts />

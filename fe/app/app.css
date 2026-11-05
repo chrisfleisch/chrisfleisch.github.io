@@ -37,8 +37,33 @@ a.site-title {
   display: inline-block;
 }
 
+:root {
+  --thumb-size: 150px;
+  --thumb-gap: 20px;
+}
+
+/*
+ * Centered column exactly as wide as a whole number of gallery columns, so the
+ * logo, headings and photo grid share the same left edge at every width.
+ */
+.content-column {
+  width: calc(
+    round(down, 100% + var(--thumb-gap), var(--thumb-size) + var(--thumb-gap)) -
+      var(--thumb-gap)
+  );
+  margin-inline: auto;
+}
+
+article.image_gallery {
+  /* Centered grid of fixed-width columns: equal side margins, last row stays aligned */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--thumb-size));
+  gap: var(--thumb-gap);
+  justify-content: center;
+  padding: 10px 0;
+}
+
 article.image_gallery img {
-  margin: 10px;
   border-radius: 6px;
   cursor: pointer;
 }
