@@ -47,6 +47,8 @@ To get photos from flickr install [uv](https://docs.astral.sh/uv/getting-started
 Setup pre-commit (Prettier/ESLint hooks run via the `tools` Docker service automatically)
 
 ```sh
+# Install the root ESLint/Prettier deps the hooks use (one time)
+docker compose run --rm tools npm install
 uvx pre-commit install
 ```
 
