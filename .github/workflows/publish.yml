@@ -5,6 +5,12 @@ on:
     branches:
       - main
 
+# Queue publish runs so back-to-back merges don't collide on the Pages
+# deployment; don't cancel in-progress runs so a deploy isn't cut off midway.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   format:
     name: CI
